@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>GestureFlow Demo Website</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+    <noscript><link rel="stylesheet" href="{{ url_for('static', filename='css/noscript.css') }}" /></noscript>
+    <!-- Include Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body class="is-preload">
+    <!-- Wrapper-->
+    <div id="wrapper">
+        <!-- Nav -->
+        <nav id="nav">
+            <a href="#" class="icon solid fa-home"><span>Home</span></a>
+            <a href="#work" class="icon solid fa-folder"><span>Demo</span></a>
+            <a href="#contact" class="icon solid fa-envelope"><span>Contact</span></a>
+        </nav>
+        <!-- Main -->
+        <div id="main">
+            <!-- Me -->
+            <article id="home" class="panel intro">
+                <header>
+                    <h1>GestureFlow</h1>
+                    <p>Webapp Demo</p>
+                </header>
+                <a href="#work" class="jumplink pic">
+                    <span class="arrow icon solid fa-chevron-right"><span>See my work</span></span>
+					<img src="{{ url_for('static', filename='images/gestureflowicon.jpg') }}" alt="GestureFlow Icon" />
+                </a>
+            </article>
+            <!-- Work -->
+            <article id="work" class="panel">
+                <header>
+                    <h2>Live Demo</h2>
+                </header>
+                <p>
+                    Currently only has live feed. 
+                </p>
+                <div>
+                    <img id="video_feed" src="/video_feed">
+                </div>
+            </article>
+            <!-- Contact -->
+            <article id="contact" class="panel">
+                <header>
+                    <h2>Contact Me</h2>
+                </header>
+                <form action="#" method="post">
+                    <div>
+                        <div class="row">
+                            <div class="col-6 col-12-medium">
+                                <input type="text" name="name" placeholder="Name" />
+                            </div>
+                            <div class="col-6 col-12-medium">
+                                <input type="text" name="email" placeholder="Email" />
+                            </div>
+                            <div class="col-12">
+                                <input type="text" name="subject" placeholder="Subject" />
+                            </div>
+                            <div class="col-12">
+                                <textarea name="message" placeholder="Message" rows="6"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <input type="submit" value="Send Message" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </article>
+        </div>
+        <!-- Footer -->
+        <div id="footer"></div>
+		</br>
+		<p> Created by Kaustuv Bhattarai.</p>
+    </div>
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/browser.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/breakpoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/util.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
