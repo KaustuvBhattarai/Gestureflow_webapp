@@ -25,11 +25,23 @@ def generate_frames():
             # Process the image to detect hands
             results = hands.process(rgb_frame)
 
-            # If hands are detected, draw landmarks and connections
+            # If hands are detected, draw landmarks, connections, and coordinates
             if results.multi_hand_landmarks:
                 for hand_landmarks in results.multi_hand_landmarks:
                     mp_drawing.draw_landmarks(
                         frame, hand_landmarks, mp_hands.HAND_CONNECTIONS)
+
+                    # Iterate through each landmark to get its coordinates
+                    for idx, landmark in enumerate(hand_landmarks.landmark):
+                        # Get the coordinates in pixels
+                        h, w, _ = frame.shape
+                        cx, cy = int(landmark.x * w), int(landmark.y * h)
+
+                        # Display the coordinates on the frame
+                        cv2.putText(frame, f'{idx}: ({cx}, {cy})', 
+                                    (cx, cy), 
+                                    cv2.FONT_HERSHEY_SIMPLEX, 
+                                    0.4, (0, 255, 0), 1, cv2.LINE_AA)
 
             # Encode the frame to JPEG format
             ret, buffer = cv2.imencode('.jpg', frame)
